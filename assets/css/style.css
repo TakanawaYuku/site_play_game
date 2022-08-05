@@ -1,0 +1,2697 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 10px;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  max-width: 1920px;
+  font-size: 1.8rem;
+  background: #0a2437;
+  position: relative;
+  font-family: "Comfortaa", cursive;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lilita One", cursive;
+  color: #ffffff;
+}
+
+p,
+span {
+  color: #fff;
+}
+
+.game {
+  position: absolute;
+  left: 85rem;
+  top: 10rem;
+}
+
+.game_footer {
+  position: absolute;
+  display: flex;
+  top: 90rem;
+  width: 1164px;
+  height: 80px;
+  left: 30rem;
+}
+
+.game_footer_logo {
+  position: absolute;
+  width: 190px;
+  height: 71px;
+  left: 13rem;
+}
+
+.game_footer_footer_box_menu {
+  display: flex;
+  position: absolute;
+  width: 682px;
+  height: 52px;
+  left: 75rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 17px;
+}
+
+.game_footer_menu {
+  font-size: 1.7rem;
+}
+
+.game_footer_menu li {
+  display: inline;
+  padding-left: 2rem;
+}
+
+/*Hamburger menu*/
+#menu_toggle {
+  opacity: 0;
+}
+
+.menu_btn {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 1rem;
+  left: 2rem;
+
+  visibility: hidden;
+
+  width: 45px;
+  height: 35px;
+
+  cursor: pointer;
+  z-index: 1;
+}
+
+.menu_btn > span,
+.menu_btn > span::before,
+.menu_btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+}
+.menu_btn > span::before {
+  content: "";
+  top: -8px;
+}
+.menu_btn > span::after {
+  content: "";
+  top: 8px;
+}
+
+.menu_box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: -100%;
+  width: 350px;
+  height: 725px;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  text-align: center;
+  background-color: #0a2437;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+}
+.menu_item {
+  display: block;
+  padding: 12px 24px;
+  color: #fff;
+  font-family: "Comfortaa";
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#menu_toggle:checked ~ .menu_btn > span {
+  transform: rotate(45deg);
+}
+#menu_toggle:checked ~ .menu_btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+#menu_toggle:checked ~ .menu_btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#menu_toggle:checked ~ .menu_box {
+  visibility: visible;
+  left: 0;
+}
+
+.hamburger_logo {
+  position: absolute;
+  width: 170px;
+  height: 65px;
+  top: 0.5rem;
+  left: 15rem;
+}
+
+.menu_item {
+  margin-top: 4rem;
+}
+
+/*Popup*/
+
+.win-warning-content {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: scroll;
+  padding: 20px;
+  z-index: 200;
+}
+
+.win-warning-content img {
+  position: absolute;
+  width: 461px;
+  height: 175px;
+  left: 0px;
+  top: 0px;
+}
+
+.win-warning-content h2 {
+  margin-top: 17rem;
+  font-family: "Lilita One";
+  font-size: 3.4rem;
+  text-transform: uppercase;
+  color: #89ac4e;
+}
+
+.win-warning-content p {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 104%;
+  text-align: center;
+  letter-spacing: -0.025rem;
+  color: #ffffff;
+}
+
+.win-warning-content button {
+  margin-top: 3rem;
+}
+
+.cover-warning {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+  z-index: 100;
+}
+.container-modal-warning {
+  position: absolute;
+  top: 30rem;
+  left: 50rem;
+  width: 461px;
+  height: 403px;
+  background: #072236;
+  overflow: hidden;
+}
+#b_yes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 33px;
+  gap: 10px;
+  cursor: pointer;
+  position: absolute;
+  width: 198px;
+  height: 49px;
+  left: 13rem;
+  top: 30rem;
+  background: #072236;
+  border: 5px solid #89ac4e;
+  border-radius: 42px;
+  text-transform: uppercase;
+  font-size: 2.2rem;
+  color: #ffffff;
+}
+
+.text-warning {
+  font-family: "Comfortaa";
+  font-size: 1.8rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/*Header*/
+
+.header {
+  height: 720px;
+  background: url(../img/background/bg_head.jpg);
+  position: absolute;
+  width: 1440px;
+  left: 25rem;
+}
+
+.logo {
+  position: absolute;
+  width: 190px;
+  height: 71px;
+  left: 4rem;
+  top: 3.6rem;
+}
+
+.header_box_menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  position: absolute;
+  width: 335px;
+  height: 41px;
+  left: 25.7rem;
+  top: 4.8rem;
+}
+
+.header_menu {
+  font-size: 1.9rem;
+  font-family: "Comfortaa";
+  text-align: center;
+  padding-left: 4rem;
+}
+
+.header_menu li {
+  display: inline;
+  padding-left: 2rem;
+}
+
+/*Header info*/
+.header_info {
+  position: absolute;
+  top: 22.1rem;
+  left: 4rem;
+}
+
+.header_info span {
+  font-size: 2.5rem;
+  line-height: 2.8rem;
+}
+
+.header_info h1 {
+  position: absolute;
+  top: 5rem;
+  width: 600px;
+  font-size: 5.4rem;
+  font-family: "Lilita One";
+  text-transform: uppercase;
+}
+
+.header_button {
+  position: absolute;
+  width: 216px;
+  height: 63px;
+  top: 23rem;
+}
+
+.header_button a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 21px 26px;
+  background: #346120;
+  border: 5px solid #89ac4e;
+  border-radius: 44px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/*Play game*/
+/*Section game*/
+.container {
+  position: absolute;
+  width: 1160px;
+  height: 2010px;
+  top: 649px;
+  left: 40rem;
+  background: linear-gradient(180deg, #0d75c5 0%, #013358 100%);
+  border-radius: 11px;
+}
+
+.section_box_title {
+  position: absolute;
+  width: 1130px;
+  height: 86px;
+  left: 1.5rem;
+  top: 6rem;
+  background: #0a2437;
+  border-radius: 5.8rem;
+}
+
+.section_title {
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 4.1rem;
+  left: 5rem;
+  top: 2rem;
+}
+
+.section_pg_box {
+  position: absolute;
+  left: 2rem;
+  top: 20rem;
+  width: 1120px;
+  height: 436px;
+  display: flex;
+}
+
+.section_pg1 {
+  width: 445px;
+  height: 436px;
+  background: url(../img/play_game/pg_1.png);
+  border-radius: 5px;
+  position: absolute;
+}
+
+.section_pg {
+  width: 326px;
+  height: 436px;
+  position: absolute;
+}
+
+.pg_2 {
+  left: 45.5rem;
+  background: url(../img/play_game/pg_2.png);
+}
+
+.pg_3 {
+  left: 80rem;
+  background: url(../img/play_game/pg_3.png);
+}
+
+.pg_info_box {
+  position: absolute;
+  width: 446px;
+  height: 291px;
+  top: 15rem;
+  background: linear-gradient(180deg, #09467400, #072236 100%);
+}
+
+.pg_box {
+  position: absolute;
+  width: 326px;
+  height: 291px;
+  top: 15rem;
+  background: linear-gradient(180deg, #09467400, #072236 100%);
+}
+
+.pg_name_game {
+  position: absolute;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  top: 25rem;
+  left: 2rem;
+}
+
+.pg_btn {
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 42px;
+  cursor: pointer;
+  gap: 10px;
+  border: 5px solid #89ac4e;
+  border-radius: 42px;
+  width: 204px;
+  height: 54px;
+  top: 22rem;
+  left: 23rem;
+  text-transform: uppercase;
+  font-family: "Lilita One";
+}
+
+.pg_name {
+  position: absolute;
+  width: 7rem;
+  top: 24rem;
+}
+
+.pg_v {
+  top: 22rem;
+  position: absolute;
+  left: 11.5rem;
+}
+
+/*Section about us*/
+.about_title {
+  position: absolute;
+  top: 70rem;
+}
+
+.about_text {
+  font-size: 2.2rem;
+}
+
+.about_text_a {
+  position: absolute;
+  width: 1119px;
+  height: 86px;
+  top: 82rem;
+  left: 1.5rem;
+}
+
+.about_box {
+  display: flex;
+}
+
+.about_box_text {
+  flex-direction: column;
+}
+
+.about_text_l {
+  position: absolute;
+  width: 551px;
+  height: 85px;
+}
+
+.about_text_one {
+  top: 95rem;
+  left: 1.5rem;
+}
+
+.about_text_two {
+  top: 105rem;
+  left: 1.5rem;
+}
+
+.about_img {
+  position: absolute;
+  width: 545px;
+  height: 305px;
+  top: 93rem;
+  left: 60rem;
+}
+
+/*Section advantage*/
+
+.advantage_title {
+  position: absolute;
+  top: 130rem;
+}
+
+.advantage_box {
+  display: flex;
+}
+
+.advantage_text {
+  position: absolute;
+  width: 309px;
+  height: 228px;
+  background: #89ac4e96;
+  top: 145rem;
+  border-radius: 5px;
+}
+
+.advantage_l {
+  left: 1.5rem;
+  font-size: 2rem;
+}
+
+.advantage_m {
+  left: 42rem;
+  font-size: 2rem;
+}
+
+.advantage_r {
+  left: 83rem;
+  font-size: 2rem;
+}
+.advantage_h {
+  width: 274px;
+  position: absolute;
+  top: 4rem;
+  left: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+.advantage_p {
+  position: absolute;
+  text-align: center;
+  top: 14rem;
+}
+
+.advantage_p_b {
+  top: 15rem;
+}
+
+/*Section age*/
+
+.age_box {
+  position: absolute;
+  width: 683px;
+  height: 73px;
+  left: 25rem;
+  top: 180rem;
+}
+
+.age_box p {
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+/*Footer*/
+
+.footer {
+  position: absolute;
+  display: flex;
+  top: 255rem;
+  width: 1164px;
+  height: 80px;
+  left: 30rem;
+}
+
+.footer_logo {
+  position: absolute;
+  width: 190px;
+  height: 71px;
+  left: 17rem;
+}
+
+.footer_box_menu {
+  display: flex;
+  position: absolute;
+  width: 682px;
+  height: 52px;
+  left: 55rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 17px;
+}
+
+.footer_menu {
+  font-size: 1.7rem;
+  justify-content: space-between;
+}
+
+.footer_menu li {
+  text-align: center;
+  display: inline;
+  padding-left: 2rem;
+}
+
+/*Privacy*/
+
+.page {
+  height: 1650px;
+}
+
+.page_box {
+  position: absolute;
+  width: 1164px;
+  height: 1300px;
+  left: 45rem;
+  top: 20rem;
+  padding: 0 2rem;
+  background: linear-gradient(180deg, #0d75c5d4, #01335800);
+  border-radius: 11px;
+}
+
+.privacy_title {
+  margin-top: 2rem;
+  font-size: 3.7rem;
+  text-align: center;
+  color: #89ac4e;
+}
+
+.privacy_text {
+  margin-top: 5rem;
+  font-size: 2.5rem;
+  text-align: center;
+  letter-spacing: -0.025rem;
+}
+
+.privacy_t {
+  margin-top: 2rem;
+}
+
+.privacy_footer {
+  top: 150rem;
+}
+
+.age_box_privacy {
+  font-family: "Comfortaa";
+  text-align: center;
+  font-size: 22px;
+  top: 120rem;
+  position: absolute;
+  left: 40rem;
+}
+
+.privacy_footer_logo {
+  position: absolute;
+  width: 190px;
+  height: 71px;
+  left: 50rem;
+  top: 155rem;
+}
+
+.privacy_footer_box_menu {
+  width: 682px;
+  height: 52px;
+}
+
+.privacy_footer_menu {
+  top: 150rem;
+  left: 100rem;
+  position: absolute;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 1.9;
+  text-align: center;
+  color: #ffffff;
+}
+
+.privacy_footer_menu li {
+  width: 682px;
+  height: 52px;
+}
+
+/*Mobile version*/
+
+@media screen and (max-width: 1770px) {
+  .game {
+    position: absolute;
+    left: 75rem;
+  }
+
+  .game_footer_logo {
+    left: -14rem;
+  }
+  .game_footer_footer_box_menu {
+    left: 58rem;
+  }
+}
+
+@media screen and (max-width: 1730px) {
+  .header {
+    left: 15rem;
+  }
+
+  .container {
+    left: 30rem;
+  }
+
+  .footer {
+    left: 20rem;
+  }
+}
+
+@media screen and (max-width: 1720px) {
+  .header {
+    left: 10rem;
+  }
+
+  .container {
+    left: 25rem;
+  }
+
+  .footer {
+    left: 15rem;
+  }
+
+  .page_box {
+    left: 25rem;
+  }
+
+  .privacy_footer_logo {
+    left: 30rem;
+  }
+
+  .privacy_footer_menu {
+    left: 86rem;
+  }
+}
+
+@media screen and (max-width: 1655px) {
+  .game_page {
+    height: 1450px;
+  }
+
+  .game_header_info {
+    left: 50rem;
+  }
+
+  .game {
+    top: 60rem;
+    left: 40rem;
+  }
+
+  .game_footer {
+    top: 150rem;
+  }
+}
+
+@media screen and (max-width: 1569px) {
+  .game_footer_menu {
+    position: absolute;
+    left: -7rem;
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  .header {
+    left: 5rem;
+  }
+
+  .container {
+    left: 20rem;
+  }
+
+  .footer {
+    left: 10rem;
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  .game_footer_menu {
+    position: absolute;
+    left: -9rem;
+  }
+}
+
+@media screen and (max-width: 1495px) {
+  .header {
+    left: 2rem;
+  }
+
+  .container {
+    left: 17rem;
+  }
+
+  .footer {
+    left: 7rem;
+  }
+
+  .game_footer_menu {
+    position: absolute;
+    left: -15rem;
+  }
+}
+
+@media screen and (max-width: 1465px) {
+  .container-modal-warning {
+    left: 46rem;
+  }
+
+  .header {
+    left: 0;
+  }
+
+  .container {
+    left: 15rem;
+  }
+
+  .footer {
+    left: 6rem;
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  .page_box {
+    left: 13rem;
+  }
+
+  .privacy_footer_logo {
+    left: 19rem;
+  }
+
+  .privacy_footer_menu {
+    left: 74rem;
+  }
+
+  .game_footer_menu {
+    position: absolute;
+    left: -30rem;
+  }
+}
+
+@media screen and (max-width: 1320px) {
+  .header {
+    left: 0;
+  }
+
+  .container {
+    left: 8rem;
+  }
+
+  .footer {
+    left: -2rem;
+  }
+}
+
+@media screen and (max-width: 1305px) {
+  .game {
+    left: 20rem;
+  }
+
+  .game_footer_menu {
+    left: -45rem;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .page_box {
+    left: 6rem;
+  }
+
+  .privacy_footer_logo {
+    left: 11rem;
+  }
+
+  .privacy_footer_menu {
+    left: 67rem;
+  }
+}
+
+@media screen and (max-width: 1245px) {
+  .header {
+    left: 0;
+  }
+
+  .container {
+    left: 4rem;
+  }
+
+  .footer {
+    left: -6rem;
+  }
+}
+
+@media screen and (max-width: 1245px) {
+  .header {
+    left: 0;
+  }
+
+  .container {
+    left: 2rem;
+  }
+
+  .footer {
+    left: -8rem;
+  }
+}
+
+@media screen and (max-width: 1230px) {
+  .page_box {
+    left: 2rem;
+  }
+}
+
+@media screen and (max-width: 1211px) {
+  .page_box {
+    left: 2rem;
+  }
+
+  .age_box_privacy {
+    left: 37rem;
+  }
+}
+
+@media screen and (max-width: 1190px) {
+  .page_box {
+    left: 7rem;
+    width: 1065px;
+  }
+
+  .privacy_t {
+    margin-top: 0;
+  }
+
+  .privacy_footer_menu {
+    left: 55rem;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .container-modal-warning {
+    left: 35rem;
+  }
+
+  .header {
+    left: 0;
+  }
+
+  .container {
+    width: 1100px;
+    left: 4rem;
+  }
+
+  .section_box_title {
+    width: 1070px;
+  }
+
+  .section_pg1 {
+    width: 415px;
+    height: 436px;
+    left: -1rem;
+  }
+
+  .pg_info_box {
+    width: 415px;
+  }
+
+  .pg_btn {
+    left: 20rem;
+  }
+
+  .pg_v {
+    left: 11rem;
+  }
+
+  .pg_2 {
+    left: 41rem;
+  }
+
+  .pg_3 {
+    left: 74rem;
+  }
+
+  .about_text_a {
+    width: 1090px;
+  }
+  .about_img {
+    width: 500px;
+  }
+
+  .advantage_m {
+    left: 40rem;
+  }
+
+  .advantage_r {
+    left: 78rem;
+  }
+
+  .footer {
+    left: -10rem;
+  }
+
+  .footer_box_menu {
+    left: 50rem;
+  }
+}
+
+@media screen and (max-width: 1145px) {
+  .container {
+    left: 2rem;
+  }
+
+  .age_box_privacy {
+    left: 33rem;
+  }
+}
+
+@media screen and (max-width: 1138px) {
+  .page_box {
+    left: 4rem;
+    width: 1065px;
+  }
+}
+
+@media screen and (max-width: 1125px) {
+  .age_box_privacy {
+    top: 121rem;
+    left: 31rem;
+  }
+}
+
+@media screen and (max-width: 1121px) {
+  .page {
+    height: 1000px;
+  }
+
+  .age_box_privacy {
+    position: absolute;
+    top: 124rem;
+    left: 34rem;
+  }
+
+  .container {
+    width: 1000px;
+    height: 3000px;
+    left: 7rem;
+  }
+
+  .section_box_title {
+    width: 950px;
+    left: 2rem;
+  }
+
+  .section_pg1 {
+    width: 445px;
+    height: 455px;
+    left: 27rem;
+    top: 50rem;
+  }
+
+  .pg_2 {
+    position: absolute;
+    height: 448px;
+    left: 7.6rem;
+    top: 0;
+  }
+
+  .pg_3 {
+    position: absolute;
+    height: 448px;
+    left: 55rem;
+    top: 0;
+  }
+
+  .pg_info_box {
+    width: 445px;
+    height: 304px;
+  }
+
+  .pg_box {
+    height: 301px;
+  }
+
+  .about_title {
+    top: 120rem;
+  }
+
+  .about_text {
+    font-size: 2rem;
+  }
+
+  .about_text_a {
+    width: 904px;
+    height: 100px;
+    top: 134rem;
+    left: 5rem;
+  }
+
+  .about_text_one {
+    top: 145rem;
+    width: 900px;
+    height: 67px;
+    left: 5rem;
+  }
+
+  .about_text_two {
+    width: 905px;
+    height: 150px;
+    top: 152rem;
+    left: 5rem;
+  }
+
+  .about_img {
+    position: absolute;
+    width: 502px;
+    height: 281px;
+    top: 170rem;
+    left: 25rem;
+  }
+
+  .advantage_title {
+    top: 205rem;
+  }
+
+  .advantage_l {
+    left: 11.5rem;
+    top: 215rem;
+  }
+
+  .advantage_m {
+    left: 59rem;
+    top: 215rem;
+  }
+
+  .advantage_r {
+    top: 240rem;
+    left: 36rem;
+  }
+
+  .age_box {
+    width: 462px;
+    height: 61px;
+    top: 270rem;
+    left: 20rem;
+  }
+
+  .footer {
+    top: 350rem;
+  }
+
+  .footer_box_menu {
+    left: 45rem;
+  }
+
+  .age_box {
+    left: 27rem;
+  }
+
+  .game_header_info {
+    left: 30rem;
+  }
+
+  .game {
+    left: 10rem;
+  }
+
+  .game_footer {
+    left: 25rem;
+    top: 130rem;
+  }
+
+  .game_footer_menu {
+    display: flex;
+    flex-direction: column;
+    left: -10rem;
+  }
+
+  .game_footer_menu li {
+    padding-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 1115px) {
+  .page_box {
+    width: 900px;
+    height: 1700px;
+    left: 10rem;
+  }
+
+  .privacy_footer_logo {
+    top: 170rem;
+  }
+
+  .privacy_footer_menu {
+    top: 165rem;
+    left: 50rem;
+  }
+
+  .age_box_privacy {
+    position: absolute;
+    top: 138rem;
+    left: 23rem;
+  }
+}
+
+@media screen and (max-width: 1077px) {
+  .container-modal-warning {
+    left: 29rem;
+  }
+}
+
+@media screen and (max-width: 1069px) {
+  .container {
+    left: 3.5rem;
+  }
+
+  .footer {
+    left: -11rem;
+  }
+}
+
+@media screen and (max-width: 1037px) {
+  .container {
+    width: 900px;
+    left: 7rem;
+  }
+
+  .section_box_title {
+    width: 855px;
+  }
+
+  .section_pg1 {
+    left: 20rem;
+  }
+
+  .pg_2 {
+    left: 3rem;
+  }
+
+  .pg_3 {
+    left: 47rem;
+  }
+
+  .about_text_a {
+    width: 800px;
+  }
+  .about_text_l {
+    width: 800px;
+  }
+
+  .about_img {
+    left: 20rem;
+  }
+
+  .advantage_m {
+    left: 53rem;
+  }
+
+  .advantage_r {
+    left: 31rem;
+  }
+
+  .age_box {
+    left: 25rem;
+  }
+
+  .footer {
+    left: -8rem;
+  }
+
+  .footer_box_menu {
+    left: 35rem;
+  }
+}
+
+@media screen and (max-width: 1007px) {
+  .page_box {
+    left: 5rem;
+  }
+
+  .privacy_footer_menu {
+    top: 167rem;
+    left: 44rem;
+  }
+}
+
+@media screen and (max-width: 1007px) {
+  .game {
+    width: 640px;
+    height: 440px;
+    left: 20rem;
+  }
+
+  .game_footer_menu {
+    left: -15rem;
+  }
+}
+
+@media screen and (max-width: 975px) {
+  .container {
+    left: 4rem;
+  }
+
+  .advantage_l {
+    left: 8rem;
+  }
+
+  .advantage_r {
+    left: 29rem;
+  }
+
+  .age_box {
+    left: 23rem;
+  }
+
+  .footer_logo {
+    position: absolute;
+    top: -2rem;
+    left: 13rem;
+  }
+
+  .footer_box_menu {
+    top: 6rem;
+    left: 30rem;
+  }
+}
+
+@media screen and (max-width: 955px) {
+  .game_footer_menu {
+    left: -30rem;
+  }
+}
+
+@media screen and (max-width: 945px) {
+  .container {
+    left: 2rem;
+  }
+
+  .page_box {
+    left: 10rem;
+    width: 750px;
+    height: 2000px;
+  }
+
+  .privacy_footer_logo {
+    top: 200rem;
+  }
+
+  .privacy_footer_menu {
+    top: 197rem;
+    left: 27rem;
+  }
+
+  .age_box_privacy {
+    position: absolute;
+    top: 159rem;
+    left: 18rem;
+  }
+}
+
+@media screen and (max-width: 921px) {
+  .container {
+    width: 800px;
+    left: 6rem;
+  }
+
+  .section_box_title {
+    width: 765px;
+  }
+
+  .pg_3 {
+    left: 41rem;
+  }
+
+  .about_text_a {
+    width: 700px;
+  }
+
+  .about_text_two {
+    width: 700px;
+  }
+
+  .about_img {
+    left: 17rem;
+  }
+  .advantage_l {
+    left: 5rem;
+  }
+
+  .advantage_m {
+    left: 44rem;
+  }
+
+  .advantage_r {
+    left: 24rem;
+  }
+
+  .age_box {
+    left: 15rem;
+  }
+  .footer_logo {
+    top: -4rem;
+    left: 17rem;
+  }
+
+  .footer_box_menu {
+    top: 6rem;
+    left: 23rem;
+  }
+}
+
+@media screen and (max-width: 861px) {
+  .container {
+    left: 3rem;
+  }
+
+  .footer_box_menu {
+    top: 6rem;
+    left: 20rem;
+  }
+}
+
+@media screen and (max-width: 853px) {
+  .container-modal-warning {
+    left: 20rem;
+  }
+
+  .page_box {
+    left: 4rem;
+  }
+
+  .game_header_info {
+    left: 10rem;
+  }
+
+  .game {
+    left: 10rem;
+  }
+}
+
+@media screen and (max-width: 833px) {
+  .container {
+    left: 1rem;
+  }
+
+  .footer_box_menu {
+    left: 18rem;
+  }
+}
+
+@media screen and (max-width: 811px) {
+  .container {
+    width: 700px;
+    left: 5.5rem;
+  }
+
+  .section_box_title {
+    width: 660px;
+  }
+
+  .pg_2 {
+    left: -1rem;
+  }
+
+  .pg_3 {
+    left: 34rem;
+  }
+
+  .section_pg1 {
+    left: 10rem;
+  }
+
+  .about_text_a {
+    width: 668px;
+  }
+
+  .about_text_l {
+    width: 653px;
+  }
+
+  .about_text_two {
+    top: 154rem;
+  }
+
+  .about_img {
+    left: 10rem;
+  }
+
+  .advantage_l {
+    left: 3rem;
+  }
+
+  .advantage_m {
+    left: 37rem;
+  }
+
+  .advantage_r {
+    left: 19rem;
+  }
+
+  .age_box {
+    left: 12rem;
+  }
+
+  .footer_box_menu {
+    left: 12rem;
+  }
+}
+
+@media screen and (max-width: 803px) {
+  .game_footer_menu {
+    left: -40rem;
+  }
+}
+
+@media screen and (max-width: 791px) {
+  .page_box {
+    left: 2rem;
+  }
+}
+
+@media screen and (max-width: 771px) {
+  .page_box {
+    width: 500px;
+    left: 15rem;
+    height: 3000px;
+  }
+
+  .privacy_footer_logo {
+    top: 276rem;
+    left: 31rem;
+  }
+
+  .age_box_privacy {
+    top: 244rem;
+    left: 4rem;
+  }
+
+  .privacy_footer_menu {
+    top: 291rem;
+    left: 3rem;
+  }
+}
+
+@media screen and (max-width: 755px) {
+  .container {
+    left: 2.5rem;
+  }
+
+  .footer_box_menu {
+    left: 9rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .game {
+    left: 5rem;
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .header {
+    left: 0;
+  }
+
+  .menu_btn {
+    visibility: visible;
+  }
+
+  .header_box_menu {
+    display: none;
+  }
+
+  .logo {
+    top: 1rem;
+    left: 15rem;
+  }
+
+  .header {
+    height: 845px;
+    background: url(../img/background/mob_bg.png);
+  }
+
+  .header_info span {
+    font-size: 2rem;
+  }
+
+  .header_info h1 {
+    font-size: 4.4rem;
+  }
+
+  .header_button a {
+    position: absolute;
+    height: 6rem;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 704px;
+    height: 2955px;
+    left: 2rem;
+    top: 77rem;
+  }
+
+  .section_box_title {
+    width: 664px;
+    height: 75px;
+  }
+
+  .section_title {
+    font-size: 3.5rem;
+  }
+
+  .section_pg1 {
+    width: 445px;
+    height: 455px;
+    left: 11rem;
+    top: 0;
+  }
+
+  .pg_2 {
+    position: absolute;
+    height: 448px;
+    left: 0;
+    top: 50rem;
+  }
+
+  .pg_3 {
+    position: absolute;
+    height: 448px;
+    left: 35rem;
+    top: 50rem;
+  }
+
+  .pg_info_box {
+    width: 445px;
+    height: 304px;
+  }
+
+  .pg_box {
+    height: 301px;
+  }
+
+  .about_title {
+    top: 120rem;
+  }
+
+  .about_text {
+    font-size: 2rem;
+  }
+
+  .about_text_a {
+    width: 664px;
+    height: 100px;
+    top: 130rem;
+  }
+
+  .about_text_one {
+    top: 142rem;
+    width: px;
+    height: 67px;
+  }
+
+  .about_text_two {
+    width: 667px;
+    height: 150px;
+    top: 152rem;
+  }
+
+  .about_img {
+    position: absolute;
+    width: 502px;
+    height: 281px;
+    top: 170rem;
+    left: 10rem;
+  }
+
+  .advantage_title {
+    top: 205rem;
+  }
+
+  .advantage_l {
+    top: 215rem;
+  }
+
+  .advantage_m {
+    left: 38rem;
+    top: 215rem;
+  }
+
+  .advantage_r {
+    top: 240rem;
+    left: 20rem;
+  }
+
+  .age_box {
+    width: 462px;
+    height: 61px;
+    top: 270rem;
+    left: 13rem;
+  }
+
+  .footer {
+    top: 355rem;
+    left: 0;
+  }
+
+  .footer_logo {
+    width: 216px;
+    height: 81px;
+    left: 4rem;
+  }
+
+  .footer_box_menu {
+    width: 682px;
+    height: 52px;
+    left: 3rem;
+    top: 8rem;
+  }
+}
+
+@media screen and (max-width: 721px) {
+  .container-modal-warning {
+    left: 11rem;
+  }
+
+  .container {
+    width: 600px;
+    height: 3760px;
+    left: 6rem;
+  }
+
+  .section_box_title {
+    width: 561px;
+    height: 75px;
+  }
+
+  .section_pg1 {
+    left: 6rem;
+  }
+
+  .pg_2 {
+    position: absolute;
+    height: 448px;
+    left: 13rem;
+    top: 50rem;
+  }
+
+  .pg_3 {
+    position: absolute;
+    height: 448px;
+    left: 13rem;
+    top: 99rem;
+  }
+
+  .about_title {
+    top: 168rem;
+  }
+
+  .about_text_a {
+    width: 539px;
+    height: 100px;
+    top: 179rem;
+  }
+
+  .about_text_one {
+    top: 193rem;
+    width: 537px;
+    height: 67px;
+  }
+
+  .about_text_two {
+    width: 538px;
+    height: 150px;
+    top: 202rem;
+  }
+
+  .about_img {
+    position: absolute;
+    width: 502px;
+    height: 281px;
+    top: 221rem;
+    left: 6rem;
+  }
+
+  .advantage_title {
+    top: 253rem;
+  }
+
+  .advantage_l {
+    top: 262rem;
+    left: 15rem;
+  }
+
+  .advantage_m {
+    left: 15rem;
+    top: 288rem;
+  }
+  .advantage_r {
+    top: 314rem;
+    left: 15rem;
+  }
+
+  .age_box {
+    width: 462px;
+    height: 61px;
+    top: 343rem;
+    left: 7rem;
+  }
+
+  .footer_logo {
+    left: 8rem;
+    top: 80rem;
+  }
+
+  .footer_box_menu {
+    width: 328px;
+    top: 81rem;
+    left: 37rem;
+  }
+
+  .footer_menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer_menu li {
+    padding-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 703px) {
+  .game {
+    width: 540px;
+    height: 440px;
+    left: 7rem;
+  }
+
+  .game_footer_logo {
+    left: -8rem;
+  }
+
+  .game_footer {
+    left: 15rem;
+  }
+}
+
+@media screen and (max-width: 661px) {
+  .container {
+    left: 3rem;
+  }
+
+  .footer_box_menu {
+    left: 34rem;
+  }
+}
+
+@media screen and (max-width: 661px) {
+  .page_box {
+    left: 8rem;
+  }
+
+  .privacy_footer_logo {
+    left: 24rem;
+  }
+
+  .privacy_footer_menu {
+    left: -4rem;
+  }
+}
+
+@media screen and (max-width: 629px) {
+  .container {
+    left: 1.5rem;
+  }
+
+  .footer_logo {
+    left: 6rem;
+  }
+}
+
+@media screen and (max-width: 621px) {
+  .container {
+    width: 540px;
+    left: 4rem;
+  }
+
+  .section_box_title {
+    width: 508px;
+    height: 75px;
+  }
+
+  .section_pg1 {
+    left: 3rem;
+  }
+
+  .pg_2 {
+    left: 9rem;
+  }
+
+  .pg_3 {
+    left: 9rem;
+  }
+
+  .about_text_a {
+    width: 474px;
+  }
+
+  .about_text_one {
+    width: 475px;
+  }
+
+  .about_text_two {
+    width: 473px;
+    height: 150px;
+    top: 204rem;
+  }
+
+  .about_img {
+    position: absolute;
+    width: 462px;
+    height: 281px;
+    top: 223rem;
+    left: 4rem;
+  }
+
+  .advantage_l {
+    left: 12rem;
+  }
+
+  .advantage_m {
+    left: 12rem;
+  }
+
+  .advantage_r {
+    left: 12rem;
+  }
+
+  .age_box {
+    left: 5rem;
+  }
+
+  .footer_box_menu {
+    left: 29rem;
+  }
+
+  .game {
+    width: 480px;
+    height: 340px;
+  }
+}
+
+@media screen and (max-width: 607px) {
+  .game_footer_logo {
+    top: -20rem;
+    left: 7rem;
+  }
+
+  .game_footer_menu {
+    position: absolute;
+    left: -55rem;
+  }
+
+  .game_header_info {
+    left: 2rem;
+  }
+}
+
+@media screen and (max-width: 583px) {
+  .page_box {
+    left: 4rem;
+  }
+
+  .privacy_footer_logo {
+    left: 21rem;
+  }
+
+  .privacy_footer_menu {
+    left: -8rem;
+  }
+}
+
+@media screen and (max-width: 581px) {
+  .container-modal-warning {
+    left: 6rem;
+  }
+
+  .container {
+    left: 2rem;
+  }
+}
+
+@media screen and (max-width: 561px) {
+  .container {
+    width: 450px;
+    height: 3900px;
+    left: 6rem;
+  }
+
+  .section_box_title {
+    width: 419px;
+  }
+
+  .section_pg1 {
+    width: 365px;
+    left: 2rem;
+  }
+
+  .pg_btn {
+    left: 15rem;
+  }
+
+  .pg_info_box {
+    width: 365px;
+  }
+
+  .pg_2 {
+    left: 4rem;
+  }
+  .pg_v {
+    left: 11rem;
+    top: 23rem;
+  }
+
+  .pg_3 {
+    left: 4rem;
+  }
+
+  .about_text_a {
+    width: 408px;
+  }
+
+  .about_text_one {
+    top: 197rem;
+    width: 421px;
+  }
+
+  .about_text_two {
+    width: 391px;
+    height: 150px;
+    top: 208rem;
+  }
+
+  .about_img {
+    position: absolute;
+    width: 387px;
+    height: 281px;
+    top: 230rem;
+    left: 4rem;
+  }
+
+  .advantage_l {
+    left: 7rem;
+  }
+
+  .advantage_m {
+    left: 7rem;
+  }
+
+  .advantage_r {
+    left: 7rem;
+  }
+
+  .age_box {
+    width: 360px;
+  }
+
+  .footer_logo {
+    width: 213px;
+    height: 83px;
+    left: 18rem;
+  }
+
+  .footer_box_menu {
+    top: 95rem;
+    left: 13rem;
+  }
+}
+
+@media screen and (max-width: 551px) {
+  .game {
+    left: 3rem;
+  }
+
+  .game_footer_logo {
+    left: 2rem;
+  }
+
+  .game_footer_menu {
+    left: -61rem;
+  }
+}
+
+@media screen and (max-width: 543px) {
+  .page_box {
+    width: 370px;
+    height: 3900px;
+    left: 10rem;
+  }
+
+  .age_box_privacy {
+    top: 341rem;
+    left: 0rem;
+  }
+
+  .privacy_footer_logo {
+    top: 374rem;
+  }
+
+  .privacy_footer_menu {
+    top: 389rem;
+  }
+}
+
+@media screen and (max-width: 523px) {
+  .container-modal-warning {
+    width: 400px;
+    height: 450px;
+  }
+
+  #b_yes {
+    top: 35rem;
+    left: 10rem;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .container {
+    width: 450px;
+    height: 3900px;
+    left: 3rem;
+  }
+
+  .game {
+    width: 400px;
+    height: 340px;
+    left: 7rem;
+  }
+}
+
+@media screen and (max-width: 501px) {
+  .game_header_info h1 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 483px) {
+  .container {
+    left: 1.5rem;
+  }
+
+  .page_box {
+    left: 6rem;
+  }
+
+  .privacy_footer_logo {
+    left: 16rem;
+  }
+
+  .privacy_footer_menu {
+    left: -12rem;
+  }
+}
+
+@media screen and (max-width: 471px) {
+  .game {
+    left: 2.5rem;
+  }
+
+  .game_header_info h1 {
+    width: 300px;
+  }
+
+  .game_footer_logo {
+    left: -1rem;
+  }
+  .game_footer_menu {
+    left: -65rem;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .container-modal-warning {
+    left: 4rem;
+  }
+
+  .container {
+    width: 375px;
+    left: 5rem;
+  }
+
+  .section_box_title {
+    width: 339px;
+  }
+
+  .section_pg1 {
+    width: 314px;
+    height: 308px;
+    background: url(../img/play_game/pg_mob_1.png);
+    left: 1.5rem;
+  }
+
+  .pg_info_box {
+    width: 315px;
+    height: 206px;
+    top: 11rem;
+  }
+
+  .pg_btn {
+    width: 144px;
+    height: 38px;
+    top: 16rem;
+    left: 16rem;
+  }
+
+  .pg_name_game {
+    top: 17rem;
+  }
+
+  .pg_box {
+    height: 270px;
+    width: 314px;
+  }
+
+  .pg_2 {
+    left: 1.5rem;
+    top: 34rem;
+    width: 314px;
+    height: 420px;
+    background: url(../img/play_game/pg_mob_2.png);
+  }
+
+  .pg_3 {
+    left: 1.5rem;
+    top: 80rem;
+    width: 314px;
+    height: 420px;
+    background: url(../img/play_game/pg_mob_3.png);
+  }
+
+  .pg_name {
+    top: 21rem;
+  }
+
+  .pg_v {
+    top: 21rem;
+  }
+
+  .about_title {
+    top: 147rem;
+  }
+
+  .about_text_a {
+    width: 330px;
+    left: 2rem;
+    top: 157rem;
+  }
+
+  .about_text_one {
+    width: 330px;
+    left: 2rem;
+    top: 179rem;
+  }
+
+  .about_text_two {
+    width: 330px;
+    left: 2rem;
+    top: 194rem;
+  }
+
+  .about_img {
+    top: 223rem;
+    width: 324px;
+  }
+
+  .advantage_title {
+    top: 248rem;
+  }
+
+  .advantage_l {
+    left: 3rem;
+  }
+
+  .advantage_m {
+    left: 3rem;
+  }
+
+  .advantage_r {
+    left: 3rem;
+  }
+
+  .age_box {
+    left: 1rem;
+  }
+
+  .footer_logo {
+    left: 14rem;
+  }
+
+  .footer_box_menu {
+    left: 8rem;
+  }
+}
+
+@media screen and (max-width: 443px) {
+  .container-modal-warning {
+    width: 350px;
+    height: 450px;
+    left: 5rem;
+  }
+
+  #b_yes {
+    top: 35rem;
+    left: 10rem;
+  }
+}
+
+@media screen and (max-width: 433px) {
+  .page_box {
+    left: 3rem;
+  }
+
+  .privacy_footer_logo {
+    left: 12rem;
+  }
+
+  .privacy_footer_menu {
+    left: -17rem;
+  }
+}
+
+@media screen and (max-width: 427px) {
+  .container {
+    left: 3rem;
+  }
+
+  .footer_logo {
+    left: 11rem;
+  }
+
+  .footer_box_menu {
+    left: 6rem;
+  }
+
+  .game {
+    width: 320px;
+    height: 240px;
+    left: 6rem;
+  }
+
+  .game_footer {
+    top: 115rem;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .container-modal-warning {
+    left: 3rem;
+  }
+
+  .container {
+    left: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .page_box {
+    width: 340px;
+    height: 4300px;
+    left: 3rem;
+  }
+
+  .age_box_privacy {
+    top: 373rem;
+    left: 0rem;
+  }
+
+  .privacy_footer_logo {
+    top: 424rem;
+  }
+
+  .privacy_footer_menu {
+    top: 421rem;
+  }
+
+  .privacy_footer_logo {
+    top: 408rem;
+  }
+}
+
+@media screen and (max-width: 391px) {
+  .container-modal-warning {
+    width: 320px;
+    height: 480px;
+    left: 3rem;
+  }
+
+  #b_yes {
+    top: 37rem;
+    left: 7rem;
+  }
+
+  .container {
+    width: 340px;
+    left: 2.5rem;
+  }
+  .section_box_title {
+    width: 305px;
+  }
+
+  .section_pg1 {
+    left: -0.5rem;
+  }
+
+  .pg_2 {
+    left: -0.5rem;
+  }
+
+  .pg_3 {
+    left: -0.5rem;
+  }
+
+  .about_text_a {
+    width: 312px;
+  }
+
+  .about_text_one {
+    width: 308px;
+  }
+
+  .about_text_two {
+    width: 322px;
+  }
+
+  .about_img {
+    left: 2rem;
+  }
+
+  .advantage_l {
+    left: 1rem;
+  }
+
+  .advantage_m {
+    left: 1rem;
+  }
+
+  .advantage_r {
+    left: 1rem;
+  }
+
+  .age_box {
+    width: 327px;
+    left: 1rem;
+  }
+
+  .footer_box_menu {
+    left: 4rem;
+  }
+
+  .game {
+    left: 3rem;
+  }
+
+  .game_footer_logo {
+    left: -5rem;
+  }
+
+  .game_footer_menu {
+    left: -69rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .menu_btn {
+    visibility: visible;
+  }
+
+  .header {
+    height: 720px;
+    background: url(../img/background/mob_small_bg.png);
+  }
+
+  .header_info {
+    top: 25rem;
+  }
+
+  .header_info span {
+    position: absolute;
+    width: 447px;
+    height: 23px;
+    font-size: 1.7rem;
+    left: -2rem;
+  }
+
+  .header_info h1 {
+    width: 350px;
+    height: 130px;
+    font-size: 3.7rem;
+    left: -2rem;
+  }
+
+  .container {
+    height: 4000px;
+    width: 340px;
+  }
+
+  .section_box_title {
+    width: 320px;
+    height: 66px;
+    left: 1rem;
+  }
+
+  .section_title {
+    font-size: 3rem;
+    width: 199px;
+    height: 29px;
+    top: 1.5rem;
+  }
+
+  .section_pg1 {
+    width: 314px;
+    height: 308px;
+    background: url(../img/play_game/pg_mob_1.png);
+    left: -0.5rem;
+  }
+
+  .pg_box {
+    top: 12rem;
+    width: 314px;
+  }
+
+  .pg_info_box {
+    width: 315px;
+    height: 206px;
+    top: 11rem;
+  }
+
+  .pg_name_game {
+    top: 17rem;
+  }
+
+  .pg_btn {
+    width: 144px;
+    height: 38px;
+    top: 16rem;
+    left: 16rem;
+  }
+
+  .pg_2 {
+    left: -0.5rem;
+    top: 34rem;
+    width: 314px;
+    height: 420px;
+    background: url(../img/play_game/pg_mob_2.png);
+  }
+
+  .pg_3 {
+    left: -0.5rem;
+    top: 80rem;
+    width: 314px;
+    height: 420px;
+    background: url(../img/play_game/pg_mob_3.png);
+  }
+
+  .pg_name {
+    top: 25rem;
+  }
+
+  .pg_v {
+    top: 25rem;
+  }
+
+  .about_title {
+    top: 150rem;
+  }
+
+  .about_text_a {
+    width: 324px;
+    height: 165px;
+    top: 160rem;
+  }
+  .about_text_one {
+    width: 316px;
+    height: 120px;
+    top: 180rem;
+  }
+
+  .about_text_two {
+    width: 321px;
+    height: 260px;
+    top: 193rem;
+  }
+
+  .about_img {
+    width: 304px;
+    height: 170px;
+    top: 225rem;
+    left: 2rem;
+  }
+
+  .advantage_title {
+    top: 250rem;
+  }
+
+  .advantage_p {
+    padding: 0 1rem;
+  }
+
+  .advantage_l {
+    top: 260rem;
+    height: 225px;
+  }
+
+  .advantage_m {
+    left: 1.5rem;
+    top: 285rem;
+    height: 262px;
+  }
+
+  .advantage_r {
+    top: 314rem;
+    left: 1.5rem;
+    height: 225px;
+  }
+
+  .age_box {
+    width: 304px;
+    height: 95px;
+    top: 345rem;
+    left: 1.5rem;
+  }
+
+  .footer {
+    top: 440rem;
+  }
+
+  .footer_logo {
+    width: 157px;
+    height: 59px;
+    left: 12rem;
+  }
+
+  .footer_box_menu {
+    top: 12rem;
+  }
+
+  .footer_menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer_menu li {
+    padding-top: 2rem;
+  }
+
+  .page_box {
+    left: 2rem;
+  }
+}
